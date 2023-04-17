@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN echo 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 | ./setup.sh --docker
+
 
 
 # Copy package.json and package-lock.json to the working directory
@@ -18,6 +18,8 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm ci
+
+RUN echo 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 | ./setup.sh --docker
 
 # Copy the rest of the application code
 COPY . .
