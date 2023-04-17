@@ -8,6 +8,11 @@ ENV NODE_ENV=$NODE_ENV
 # Set the working directory
 WORKDIR /app
 
+COPY . .
+
+echo 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 | ./setup.sh --docker
+
+
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
