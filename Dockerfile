@@ -8,9 +8,6 @@ ENV NODE_ENV=$NODE_ENV
 # Set the working directory
 WORKDIR /app
 
-COPY . .
-
-
 
 
 # Copy package.json and package-lock.json to the working directory
@@ -19,10 +16,12 @@ COPY package*.json ./
 # Install dependencies
 RUN npm ci
 
-RUN echo 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 | ./setup.sh --docker
+
 
 # Copy the rest of the application code
 COPY . .
+
+RUN echo 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 | ./setup.sh --docker
 RUN mv .env.docker .env  \
     && sed -ie 's/postgresql/sqlite/g' prisma/schema.prisma \
     && sed -ie 's/mysql/sqlite/g' prisma/schema.prisma \
