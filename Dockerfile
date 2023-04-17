@@ -10,7 +10,7 @@ WORKDIR /app
 
 COPY . .
 
-echo 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 | ./setup.sh --docker
+RUN echo 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 | ./setup.sh --docker
 
 
 # Copy package.json and package-lock.json to the working directory
